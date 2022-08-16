@@ -1,0 +1,18 @@
+---
+title: "Joins and strings and dates"
+author: "Lew"
+format: html
+editor: visual
+---
+
+## joins
+
+### Full join
+
+### Left join
+
+### Inner join
+
+### Semi join
+
+### Anti join
