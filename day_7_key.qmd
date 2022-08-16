@@ -8,6 +8,7 @@ editor: visual
 ```{r}
 library(tidyverse)
 library(palmerpenguins)
+library(lubridate)
 ```
 
 ## joins
@@ -127,4 +128,54 @@ penguins_refresher_2 <- penguins %>%
             nsize = n())
 ```
 
-\
+## Dates and times with `lubridate`
+
+```{r}
+my_date <- "03-15-1998"
+lubridate::mdy(my_date)
+
+my_date <- "11/7/2003" #day/month/year
+lubridate::dmy(my_date)
+
+lubridate::dmy("08-JUN-1974")
+
+my_date <- "19610518"
+my_real_date <- lubridate::ymd(my_date)
+
+my_date <- "January 7th, 1997"
+lubridate::dmy(my_date)
+```
+
+```{r}
+lubridate::ymd("1942-08-30")
+
+lubridate::dmy("09/12/94")
+```
+
+```{r}
+time <- "2020-08-12 11:18:40"
+time_new <- lubridate::ymd_hm(time)
+
+with_tz(time_new, "America/Los_Angeles")
+
+with_tz(time_new, "Africa/Accra")
+
+my_time <- lubridate::ymd_hms(time)
+
+year(my_time)
+second(my_time)
+day(my_time)
+month(my_time)
+hour(my_time)
+minute(my_time)
+```
+
+```{r}
+teddy_bday<- lubridate::ymd("20170615")
+
+wday(teddy_bday, label = TRUE)
+
+lew_bday <- lubridate::ymd("19971022")
+wday(lew_bday, label = TRUE)
+week(lew_bday)
+```
